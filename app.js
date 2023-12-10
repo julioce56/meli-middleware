@@ -18,7 +18,6 @@ app.get('/api/items', (req, res) => {
     const query = req.query.q; // Obtenemos el parámetro de la petición.
     (async () => {
         try {
-            console.log(query, 'query');
             const externalAPI = await got(`https://api.mercadolibre.com/sites/MLA/search?q=${query}`); // Consumimos el endpoint en el API de Meli con el parámetro solicitado.
             const body = JSON.parse(externalAPI.body); // Obtenemos la respuesta del servicio.
             let bodyAux = { // Construimos el array deseado con la información obtenida del API.
@@ -64,7 +63,6 @@ app.get('/api/items', (req, res) => {
 app.get('/api/items/:id', (req, res) => {
     const id = req.params.id; // Obtenemos el parámetro id que nos envía el cliente.
     (async () => {
-        console.log('object');
         try {
             const extItemAPI = await got(`https://api.mercadolibre.com/items/${id}`); // Consumimos el endpoint de Meli para obtener información del producto.
             const extItemDescrAPI = await got(`https://api.mercadolibre.com/items/${id}/description`); // Consumimos el endpoint de Meli para obtener la descripción del item específico.
