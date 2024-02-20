@@ -4,4 +4,4 @@ Callenge(BACK-MIDDLEWARE) for MELI vacant
 
 # Run project
 
-Comman: node app.js
+Command: node app.js
